@@ -111,20 +111,20 @@ cd weather-assignment
 `(Docker may ask for sudo privilege)`
 
 ```sh
-docker-compose up -d --build
+docker compose up -d --build
 ```
 ```sh
-docker-compose exec web python manage.py migrate
+docker compose exec web python manage.py migrate
 ```
 ```sh
-docker-compose exec web python manage.py loaddata fixtures/city.json --app weather.city
+docker compose exec web python manage.py loaddata fixtures/city.json --app weather.city
 ```
 
 * If you refresh the Django welcome page at http://127.0.0.1:8000/ it will start to work.
 
 *_When you're done, don't forget to close down your Docker container :_*
 ```sh
-docker-compose down
+docker compose down
 ```
 
 ## Features 🌟
