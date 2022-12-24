@@ -1,0 +1,29 @@
+<!-- templates/authentication/login.html -->
+
+{% extends "base.html" %}
+
+<!-- title -->
+{% block title %} Home {% endblock title %}
+<!-- end title -->
+
+<!-- BODY -->
+{% block  content %}
+<div class="row">
+    {% for object in weathers %}
+    <div class="col-sm-4">
+      <div class="card m-2">
+        <div class="card-body">
+            <div class="d-flex">
+            <img src="https://openweathermap.org/img/w/{{object.icon}}.png" class="float-left circle" alt="Placeholder image">
+            <h5 class="mx-3 mt-3">{{object.city_name}}</h5>
+            </div>
+          <p class="card-text">Temprature: {{object.temp}} °C</p>
+          <p class="card-text">Weather: {{object.weather}}</p>
+          <p class="card-text">Humidity: {{object.humidity}}%</p>
+        </div>
+      </div>
+    </div>
+{% endfor %}
+</div>
+{% endblock content %}
+<!-- End BODY -->
