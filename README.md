@@ -10,8 +10,8 @@
 ![demo](images/main.png)
 
 ## 📖 Prerequisite
-- OS used (ubuntu)
-- Install 🐍 [Python3](https://www.python.org/)
+- OS used [Ubuntu](https://ubuntu.com/download/desktop)
+- Install [Python3](https://www.python.org/)
 - Install [PIP](https://pip.pypa.io/en/stable/installation/#supported-methods)
 - Install [PostgreSQL](https://www.postgresql.org/download/linux/ubuntu/)
 - Install [Docker](https://docs.docker.com/engine/install/ubuntu/)
@@ -19,6 +19,8 @@
 
 ## 📀 Running Demo
 -   _Must have postgreSQL data details same as below for running or change according to your ease :_
+    
+    `base/setting.py line 85`
 
     ```
     "NAME": "postgres",
@@ -27,7 +29,6 @@
     "HOST": "localhost",
     "PORT": 5432, # default port
     ```
-
 
 <h2> Steps for running the instance of projects without docker :</h2>
 
@@ -64,13 +65,13 @@ python manage.py runserver
 * Add your detail below where it asks for username and password.
 * Copy access token.
 * Open postman ,create a collection and create a request.
-    * if using http://127.0.0.1:8000/api/cities/ endpoint GET and POST request will work.
-    * if using http://127.0.0.1:8000/api/cities/<str:city_name>/ endpoint GET,PUT and DELETE request will work.
+    * if using `http://127.0.0.1:8000/api/cities/` endpoint GET and POST request will work.
+    * if using `http://127.0.0.1:8000/api/cities/<str:city_name>/` endpoint GET,PUT and DELETE request will work.
 * In authorization toolbar choose type as *Bearer Token* and paste the access token.
 * If on http://127.0.0.1:8000/api/cities/ endpoint add data in body toolbar -> choose raw -> select JSON instead of Text.
     
     * City Name must start with capital letter.
-    * Add data in format given below.
+    * Add data in format given below:
 
     ```json
     {
@@ -83,8 +84,8 @@ python manage.py runserver
         "icon": "03n"
 
     }
-
     ```
+
 * Hit Send.
 * The changes will be shown on homepage of the web application.
 
@@ -120,7 +121,7 @@ docker compose exec web python manage.py migrate
 docker compose exec web python manage.py loaddata fixtures/city.json --app weather.city
 ```
 
-* If you refresh the Django welcome page at http://127.0.0.1:8000/ it will start to work.
+* If you refresh the Django welcome page at `http://127.0.0.1:8000/` it will start to work.
 
 *_When you're done, don't forget to close down your Docker container :_*
 ```sh
@@ -140,6 +141,50 @@ docker compose down
 * **API View**
 
 ![API List view](images/api.png)
+
+## Project Structure
+```
+📦weather-assignment
+┣ 📦base (Project core folder)
+┃ ┣ 📜__init__.py
+┃ ┣ 📜asgi.py
+┃ ┣ 📜settings.py
+┃ ┣ 📜urls.py
+┃ ┗ 📜wsgi.py
+┣ 📦fixtures (Fixtures for predefined data to load in postgres)
+┃ ┗ 📜city.json
+┣ 📦images (Images for README.md)
+┃ ┣ 📜api.png
+┃ ┗ 📜main.png
+┣ 📦templates (Template folder for all html files)
+┃ ┣ 📂weather
+┃ ┃ ┣ 📜home.html
+┃ ┃ ┣ 📜login.html
+┃ ┃ ┗ 📜signup.html
+┃ ┣ 📜base.html
+┃ ┗ 📜navbar.html
+┣ 📦weather (Project's application)
+┃ ┣ 📂migrations
+┃ ┣ 📜__init__.py
+┃ ┣ 📜admin.py
+┃ ┣ 📜apps.py
+┃ ┣ 📜forms.py
+┃ ┣ 📜models.py
+┃ ┣ 📜serializers.py
+┃ ┣ 📜tests.py
+┃ ┣ 📜urls.py
+┃ ┣ 📜utilities.py
+┃ ┗ 📜views.py
+┣ 📜.dockerignore
+┣ 📜.gitignore
+┣ 📜Dockerfile
+┣ 📜README.md
+┣ 📜manage.py
+┣ 📜requirement.txt
+┗ 📜docker-compose.yml
+
+```
+
 
 
 ## Authors 😁️
