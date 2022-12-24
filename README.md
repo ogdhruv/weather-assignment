@@ -88,7 +88,7 @@ python manage.py runserver
 * Hit Send.
 * The changes will be shown on homepage of the web application.
 
-<h3> API endpoints <h3>
+<h3> API endpoints </h3>
 
 ```
 http://127.0.0.1:8000/token
