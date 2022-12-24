@@ -86,7 +86,7 @@ python manage.py runserver
 
     ```
 * Hit Send.
-
+* The changes will be shown on homepage of the web application.
 
 <h3> API endpoints <h3>
 
@@ -99,7 +99,7 @@ http://127.0.0.1:8000/api/cities/<str:city_name>/, - for each city weather data 
 
 <h2> Steps for running the instance of projects with docker :</h2>
 
-*  *_First change "HOST": "localhost" in postgresql setting to "HOST": "db"._*
+ #### :warning: *_Firstly change "HOST": "localhost" in postgresql setting to "HOST": "db"._*
 
 
 ```sh
@@ -110,9 +110,6 @@ cd weather-assignment
 ```
 `(Docker may ask for sudo privilege)`
 
-```sh
-docker build . 
-```
 ```sh
 docker-compose up -d --build
 ```
