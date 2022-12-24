@@ -11,7 +11,7 @@ def checkweather(city):
     context = {
         "city_name": w_dataset["name"],
         "city_country": w_dataset["sys"]["country"],
-        "temp": round(w_dataset["main"]["temp"] - 273.0),
+        "temp": round(w_dataset["main"]["temp"] - 273.0,2),
         "pressure": w_dataset["main"]["pressure"],
         "humidity": w_dataset["main"]["humidity"],
         "weather": w_dataset["weather"][0]["main"],
